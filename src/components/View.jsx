@@ -1,6 +1,29 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const View = () => {
+        const[data,changeData]=useState(
+            [
+                {
+                    "name":"Harry Potter",
+        "category":"Fantasy",
+        "author":"J K Rowling",
+        "price":"500"
+                }
+            ]
+        )
+
+        const fetchData= () => {
+            axios.get("").then((response)=>
+                {
+                    console.log(response.data)
+                    changeData(response.data)
+                }
+            ).catch().finally()
+        }
+
+        useEffect(() => {fetchData()},[])
+
   return (
     <div>
         <div className="container">
